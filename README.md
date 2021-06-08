@@ -5,11 +5,14 @@
 Lemoncash
 
 Lemoncash es una plataforma que permite a los usuarios administrar distintos tipos de
-activos .
+activos.
 
 ## Para ejecutar:
-Ejecutar localemente desde ide o maven.
-Por le momento para la BD SQL se utiliza H2, por lo cual no se periste la info.
+Ejecutar localemente desde IDE de preferencia o maven ``` mvn spring-boot:run```.
+
+Por el momento para la BD SQL se utiliza H2, por lo cual no se periste la info al cerrar la aplicacion.
+
+La aplicacion arranca con datos suficientes para cargar usuarios.
 
 ### Alta de un usuario
 ```bash
@@ -49,3 +52,8 @@ Posibles coin_type: ```ARS``` - ```USDT``` - ```BTC```
 curl --location --request GET 'http://localhost:8080/movement/?user_id=1'
 ```
 Otros posible parametros: ```coin_type``` - ```limit``` - ```offset```- ```movement_type```
+
+### TODO:
+* Configurar BD y aplicacion en DOCKER.
+* Pulir manejo de errores.
+* Subir test coverage.
