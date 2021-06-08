@@ -17,13 +17,13 @@ public abstract class MovementDataValidationService {
         createCheckIsNotNullRequiredField(movement.getCoinTypeId(), baseMessage, "coinTypeId");
 
         switch (movement.getMovementType()) {
-            case DEPOSIT:
+            case deposit:
                 createCheckIsNotNullRequiredField(movement.getDestinationWalletId(), baseMessage, "destinationWalletId");
                 break;
-            case EXTRACT:
+            case extract:
                 createCheckIsNotNullRequiredField(movement.getOriginWalletId(), baseMessage, "originWalletId");
                 break;
-            case TRANSFER:
+            case transfer:
                 createCheckIsNotNullRequiredField(movement.getDestinationWalletId(), baseMessage, "destinationWalletId");
                 createCheckIsNotNullRequiredField(movement.getOriginWalletId(), baseMessage, "originWalletId");
                 break;

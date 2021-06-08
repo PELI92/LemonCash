@@ -13,7 +13,7 @@ import com.example.demo.lemoncash.exchange.wallet.WalletDataService;
 import lombok.Builder;
 import org.springframework.stereotype.Service;
 
-import static com.example.demo.lemoncash.exchange.movement.MovementType.EXTRACT;
+import static com.example.demo.lemoncash.exchange.movement.MovementType.extract;
 import static java.util.Objects.nonNull;
 
 @Builder
@@ -91,7 +91,7 @@ public class MovementResolverExtract extends MovementResolver {
     private void persistMovement(Wallet walletOrigin, CoinType coinType, Double amount) {
         Movement movement = Movement.builder()
                 .coinTypeId(coinType.getId())
-                .movementType(EXTRACT)
+                .movementType(extract)
                 .originWalletId(walletOrigin.getId())
                 .amount(amount)
                 .build();

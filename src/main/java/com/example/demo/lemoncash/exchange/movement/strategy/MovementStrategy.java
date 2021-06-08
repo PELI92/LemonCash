@@ -21,11 +21,11 @@ public class MovementStrategy {
 
     public MovementResolver getMovementResolver(MovementType movementType) throws InvalidParameterException {
         switch (movementType) {
-            case DEPOSIT:
+            case deposit:
                 return movementDepositResolver;
-            case EXTRACT:
+            case extract:
                 return movementExtractResolver;
-            case TRANSFER:
+            case transfer:
                 return movementTransactionResolver;
             default:
                 throw new InvalidParameterException();

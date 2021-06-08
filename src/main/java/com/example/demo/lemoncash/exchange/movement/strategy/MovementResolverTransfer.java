@@ -16,7 +16,7 @@ import org.springframework.stereotype.Service;
 
 import java.sql.SQLException;
 
-import static com.example.demo.lemoncash.exchange.movement.MovementType.TRANSFER;
+import static com.example.demo.lemoncash.exchange.movement.MovementType.transfer;
 import static java.util.Objects.nonNull;
 
 @Builder
@@ -109,7 +109,7 @@ public class MovementResolverTransfer extends MovementResolver {
     private void persistMovement(Wallet walletOrigin, Wallet walletDestination, CoinType coinType, Double amount) {
         Movement movement = Movement.builder()
                 .coinTypeId(coinType.getId())
-                .movementType(TRANSFER)
+                .movementType(transfer)
                 .originWalletId(walletOrigin.getId())
                 .destinationWalletId(walletDestination.getId())
                 .amount(amount)

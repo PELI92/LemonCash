@@ -12,7 +12,7 @@ import com.example.demo.lemoncash.exchange.wallet.WalletDataService;
 import lombok.Builder;
 import org.springframework.stereotype.Service;
 
-import static com.example.demo.lemoncash.exchange.movement.MovementType.DEPOSIT;
+import static com.example.demo.lemoncash.exchange.movement.MovementType.deposit;
 import static java.util.Objects.nonNull;
 
 @Builder
@@ -88,7 +88,7 @@ public class MovementResolverDeposit extends MovementResolver {
     private void persistMovement(Wallet walletDestination, CoinType coinType, Double amount) {
         Movement movement = Movement.builder()
                 .coinTypeId(coinType.getId())
-                .movementType(DEPOSIT)
+                .movementType(deposit)
                 .destinationWalletId(walletDestination.getId())
                 .amount(amount)
                 .build();
