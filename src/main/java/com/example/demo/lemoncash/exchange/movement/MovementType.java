@@ -1,6 +1,10 @@
 package com.example.demo.lemoncash.exchange.movement;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonValue;
+import org.apache.commons.lang3.StringUtils;
+
+import java.util.stream.Stream;
 
 public enum MovementType {
     DEPOSIT("deposit"),
@@ -17,4 +21,13 @@ public enum MovementType {
     public String getName() {
         return name;
     }
+
+    @JsonCreator
+    public static MovementType decode(final String code) {
+        return Stream.of(MovementType.values())
+                .filter(e -> StringUtils.equalsIgnoreCase(code, e.getName()))
+                .findFirst()
+                .orElse(null);
+    }
+
 }

@@ -43,7 +43,7 @@ public class MovementService {
         }
     }
 
-    List<Movement> listMovementsByUserId(Long userId, String coinTypeNameAbbr, MovementType movementType, Integer limit, Integer offset) {
+    List<MovementResponse> listMovementsByUserId(Long userId, String coinTypeNameAbbr, MovementType movementType, Integer limit, Integer offset) {
         Optional<CoinType> optionalCoinType = StringUtils.isNotEmpty(coinTypeNameAbbr) ? coinTypeDataService.getByNameAbbr(coinTypeNameAbbr) : empty();
         Optional<MovementType> optionalMovementType = Optional.ofNullable(movementType);
 
@@ -60,10 +60,12 @@ public class MovementService {
                     .collect(toList());
         }
 
-        return optionalMovementType.isPresent()
+        List<Movement> movements = optionalMovementType.isPresent()
                 ? movementDataService.getByWalletIdsAndMovementType(walletIds, optionalMovementType.get(), limit, offset)
                 : movementDataService.getByWalletIds(walletIds, limit, offset);
-
+        return movements.stream()
+                .map(this::buildMovementResponse)
+                .collect(toList());
     }
 
     List<Wallet> filterCoinType(List<Wallet> walletList, CoinType coinType) {
@@ -71,6 +73,20 @@ public class MovementService {
                 .filter(w -> coinType.getId().equals(w.getCoinTypeId()))
                 .collect(toList());
 
+    }
+
+    private MovementResponse buildMovementResponse(Movement movement) {
+        return MovementResponse.builder()
+                .id(movement.getId())
+                .movementType(movement.getMovementType())
+                .originWalletId(movement.getOriginWalletId())
+                .destinationWalletId(movement.getDestinationWalletId())
+                .amount(getFormattedAmount(movement.getAmount(), movement.getCoinTypeId()))
+                .build();
+    }
+
+    private String getFormattedAmount(Double amount, Integer coinTypeId) {
+        return coinTypeDataService.getFormattedAmount(amount, coinTypeId);
     }
 
 }

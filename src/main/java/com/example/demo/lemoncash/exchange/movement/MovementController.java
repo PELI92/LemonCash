@@ -25,11 +25,11 @@ public class MovementController {
     }
 
     @GetMapping
-    public List<Movement> listMovementsByUserId(@RequestParam(name = "user_id") Long userId,
-                                                @RequestParam(name = "coin_type", required = false) String coinTypeNameAbbr,
-                                                @RequestParam(name = "movement_type", required = false) MovementType movementType,
-                                                @RequestParam(name = "limit", required = false) Integer limit,
-                                                @RequestParam(name = "offset", required = false) Integer offset) {
+    public List<MovementResponse> listMovementsByUserId(@RequestParam(name = "user_id") Long userId,
+                                                        @RequestParam(name = "coin_type", required = false) String coinTypeNameAbbr,
+                                                        @RequestParam(name = "movement_type", required = false) MovementType movementType,
+                                                        @RequestParam(name = "limit", required = false) Integer limit,
+                                                        @RequestParam(name = "offset", required = false) Integer offset) {
         return movementService.listMovementsByUserId(userId, coinTypeNameAbbr, movementType, limit, offset);
     }
 

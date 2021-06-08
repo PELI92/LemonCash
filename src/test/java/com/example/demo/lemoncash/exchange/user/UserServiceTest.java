@@ -24,10 +24,7 @@ import static com.example.demo.lemoncash.fixture.CoinTypeFixture.getAllCoinTypes
 import static java.util.stream.Collectors.toList;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.eq;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.times;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
 
 @RunWith(SpringRunner.class)
@@ -67,7 +64,7 @@ public class UserServiceTest {
     }
 
     @Test
-    public void create() throws Exception {
+    public void create_simple_user_with_3_default_wallets() throws Exception {
 
         UserRequest userRequest = UserRequest.builder()
                 .name("Juan")
@@ -142,7 +139,7 @@ public class UserServiceTest {
     }
 
     @Test
-    public void getById() {
+    public void getById_simple_user_with_3_default_wallets() {
         Long userId = 1L;
 
         Optional<User> user = Optional.of(User.builder()
@@ -219,7 +216,7 @@ public class UserServiceTest {
     }
 
     @Test
-    public void getByAlias() {
+    public void getByAlias_simple_user_with_3_default_wallets() {
         String alias = "juan-perez";
 
         Optional<User> user = Optional.of(User.builder()
@@ -296,7 +293,7 @@ public class UserServiceTest {
     }
 
     @Test
-    public void getByEmail() {
+    public void getByEmail_simple_user_with_3_default_wallets() {
         String email = "juan.perez@gmail.com";
 
         Optional<User> user = Optional.of(User.builder()
