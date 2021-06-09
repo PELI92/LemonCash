@@ -19,18 +19,6 @@ public class MovementDataService {
 
     private final CoinTypeDataService coinTypeDataService;
 
-    public List<Movement> getByWalletId(Long walletId, Integer limit, Integer offset) {
-        return movementDAO.getByWalletId(walletId, limit, offset).stream()
-                .map(this::setCoinTypeNameAbbr)
-                .collect(toList());
-    }
-
-    public List<Movement> getByWalletIdAndMovementType(Long walletId, MovementType movementType, Integer limit, Integer offset) {
-        return movementDAO.getByWalletIdAndMovementType(walletId, movementType, limit, offset).stream()
-                .map(this::setCoinTypeNameAbbr)
-                .collect(toList());
-    }
-
     public List<Movement> getByWalletIds(List<Long> walletIds, Integer limit, Integer offset) {
         return movementDAO.getByWalletIds(walletIds, limit, offset).stream()
                 .map(this::setCoinTypeNameAbbr)

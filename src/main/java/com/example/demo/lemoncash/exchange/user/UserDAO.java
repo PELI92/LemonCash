@@ -34,9 +34,9 @@ public class UserDAO {
 
     private SimpleJdbcInsert simpleJdbcInsert;
 
-    private final static String QUERY_GET_BY_ID = "SELECT * FROM user WHERE user_id = :user_id";
-    private final static String QUERY_GET_BY_ALIAS = "SELECT * FROM user WHERE alias = :alias";
-    private final static String QUERY_GET_BY_EMAIL = "SELECT * FROM user WHERE email = :email";
+    private final static String QUERY_GET_BY_ID = "SELECT * FROM USER WHERE user_id = :user_id";
+    private final static String QUERY_GET_BY_ALIAS = "SELECT * FROM USER WHERE alias = :alias";
+    private final static String QUERY_GET_BY_EMAIL = "SELECT * FROM USER WHERE email = :email";
 
     @PostConstruct
     public void init() {

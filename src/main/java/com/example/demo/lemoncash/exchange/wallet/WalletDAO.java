@@ -34,9 +34,9 @@ public class WalletDAO {
 
     private SimpleJdbcInsert simpleJdbcInsert;
 
-    private final static String SELECT_BY_WALLET_ID = "SELECT * FROM wallet WHERE wallet_id = :wallet_id";
-    private final static String SELECT_IN_WALLET_ID = "SELECT * FROM wallet WHERE wallet_id IN (:inValues);";
-    private final static String UPDATE_BALANCE_BY_WALLET_ID = "UPDATE wallet SET balance = :balance WHERE wallet_id = :wallet_id";
+    private final static String SELECT_BY_WALLET_ID = "SELECT * FROM WALLET WHERE wallet_id = :wallet_id";
+    private final static String SELECT_IN_WALLET_ID = "SELECT * FROM WALLET WHERE wallet_id IN (:inValues);";
+    private final static String UPDATE_BALANCE_BY_WALLET_ID = "UPDATE WALLET SET balance = :balance WHERE wallet_id = :wallet_id";
 
     @PostConstruct
     public void init() {

@@ -16,7 +16,7 @@ public class CoinTypeDAO {
     @Resource
     private final NamedParameterJdbcTemplate namedParameterJdbcTemplate;
 
-    private final static String QUERY_GET_BY_ID = "SELECT * FROM coin_type";
+    private final static String QUERY_GET_BY_ID = "SELECT * FROM COIN_TYPE";
 
     public List<CoinType> getAllCoinTypes() throws RetrieveEntityException {
         return namedParameterJdbcTemplate.query(QUERY_GET_BY_ID, new CoinTypeMapper());
