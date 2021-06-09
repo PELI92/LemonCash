@@ -7,19 +7,20 @@ Lemoncash
 Lemoncash es una plataforma que permite a los usuarios administrar distintos tipos de
 activos.
 
+## Setup:
+Para crear las imagenes de las bases de datos referirse a:
+[LemonCashSQL](https://github.com/PELI92/LemonCashSQL)
+
 ## Para ejecutar:
 Ejecutar localemente desde IDE de preferencia con la siguiente VM option:
-
-```-Dspring.profiles.active=local```
-
+```bash
+-Dspring.profiles.active=local 
+```
 o con maven:
-
-```mvn spring-boot:run -Dspring-boot.run.profiles=local```.
-
-Por el momento para la BD SQL se utiliza H2, por lo cual no se periste la info al cerrar la aplicacion.
-
-La aplicacion arranca con datos suficientes para cargar usuarios.
-
+```bash
+mvn spring-boot:run -Dspring-boot.run.profiles=local
+```
+## Para probar:
 ### Alta de un usuario
 ```bash
 curl --location --request POST 'http://localhost:8080/users/' \
@@ -48,18 +49,17 @@ curl --location --request POST 'http://localhost:8080/movement' \
 "user_id_destination": 1
 }'
 ```
-Posibles movement_type: ```deposit``` - ```extract``` - ```transfer```
+Posibles movement_type: `deposit` - `extract` - `transfer`
 
-Posibles coin_type: ```ARS``` - ```USDT``` - ```BTC```
+Posibles coin_type: `ARS` - `USDT` - `BTC`
 
 ### Listar movimientos de un usuario
 
 ```bash
 curl --location --request GET 'http://localhost:8080/movement/?user_id=1'
 ```
-Otros posible parametros: ```coin_type``` - ```limit``` - ```offset```- ```movement_type```
+Otros posible parametros: `coin_type` - `limit` - `offset`- `movement_type`
 
 ### TODO:
-* Configurar BD y aplicacion en DOCKER.
 * Pulir manejo de errores.
 * Subir test coverage.
