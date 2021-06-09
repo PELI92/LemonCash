@@ -8,11 +8,13 @@ Lemoncash es una plataforma que permite a los usuarios administrar distintos tip
 activos.
 
 ## Para ejecutar:
-Ejecutar localemente desde IDE de preferencia o maven ``` mvn spring-boot:run```.
+Ejecutar localemente desde IDE de preferencia con la siguiente VM option:
 
-Para ejecutar localmente agregar la siguiente VM option:
 ```-Dspring.profiles.active=local```
 
+o con maven:
+
+```mvn spring-boot:run -Dspring-boot.run.profiles=local```.
 
 Por el momento para la BD SQL se utiliza H2, por lo cual no se periste la info al cerrar la aplicacion.
 
