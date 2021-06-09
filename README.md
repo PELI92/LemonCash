@@ -10,6 +10,10 @@ activos.
 ## Para ejecutar:
 Ejecutar localemente desde IDE de preferencia o maven ``` mvn spring-boot:run```.
 
+Para ejecutar localmente agregar la siguiente VM option:
+```-Dspring.profiles.active=local```
+
+
 Por el momento para la BD SQL se utiliza H2, por lo cual no se periste la info al cerrar la aplicacion.
 
 La aplicacion arranca con datos suficientes para cargar usuarios.
