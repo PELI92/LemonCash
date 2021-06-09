@@ -4,7 +4,7 @@ db:
     url: jdbc:mysql://localhost:3306
     db: lemoncash?useSSL=false&useTimezone=true&serverTimezone=UTC
     username: sa
-    password:
+    password: password
     maxLifetime: 420000
     idleTimeout: 60000
     maximumPoolSize: 200
