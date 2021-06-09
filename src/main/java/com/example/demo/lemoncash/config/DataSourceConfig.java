@@ -24,7 +24,7 @@ public class DataSourceConfig extends HikariConfig {
     public DataSource getDataSource() {
         String jdbcUrl = String.format("%s/%s", url, db);
         setJdbcUrl(jdbcUrl);
-        setPassword(password);
+        super.setPassword(password);
         return new HikariDataSource(this);
     }
 

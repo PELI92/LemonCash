@@ -34,8 +34,8 @@ public class UserWalletDAO {
 
     private SimpleJdbcInsert simpleJdbcInsert;
 
-    private final static String QUERY_GET_BY_USER_ID = "SELECT * FROM user_wallet WHERE user_id = :user_id";
-    private final static String QUERY_GET_BY_WALLET_ID = "SELECT * FROM user_wallet WHERE wallet_id = :wallet_id";
+    private final static String QUERY_GET_BY_USER_ID = "SELECT * FROM USER_WALLET WHERE user_id = :user_id";
+    private final static String QUERY_GET_BY_WALLET_ID = "SELECT * FROM USER_WALLET WHERE wallet_id = :wallet_id";
 
     @PostConstruct
     public void init() {

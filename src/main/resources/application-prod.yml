@@ -2,7 +2,7 @@ db:
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306
-    db: lemoncash?useSSL=false&useTimezone=true&serverTimezone=UTC
+    db: lemoncash?useSSL=false&useTimezone=true&serverTimezone=UTC&allowPublicKeyRetrieval=true
     username: sa
     password: password
     maxLifetime: 420000
@@ -14,3 +14,7 @@ db:
     cacheServerConfiguration: true
     connectionTimeout: 30000
     minimumIdle: 25
+
+spring:
+  datasource:
+    initializationMode: never

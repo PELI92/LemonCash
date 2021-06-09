@@ -37,10 +37,10 @@ public class MovementDAO {
     private final static String LIMIT = " LIMIT %s";
     private final static String OFFSET = " OFFSET %s";
 
-    private final static String QUERY_GET_BY_WALLET_ID = "SELECT * FROM movement WHERE origin_wallet_id = :wallet_id OR destination_wallet_id = :wallet_id ORDER BY movement_id";
-    private final static String QUERY_GET_BY_WALLET_ID_AND_MOVEMENT_TYPE = "SELECT * FROM movement WHERE (origin_wallet_id = :wallet_id OR destination_wallet_id = :wallet_id) AND movement_type = :movement_type ORDER BY movement_id";
-    private final static String QUERY_GET_IN_WALLET_ID = "SELECT * FROM movement WHERE origin_wallet_id IN (:wallet_ids) OR destination_wallet_id IN (:wallet_ids) ORDER BY movement_id";
-    private final static String QUERY_GET_IN_WALLET_ID_AND_MOVEMENT_TYPE = "SELECT * FROM movement WHERE (origin_wallet_id IN (:wallet_ids) OR destination_wallet_id IN (:wallet_ids)) AND movement_type = :movement_type ORDER BY movement_id";
+    private final static String QUERY_GET_BY_WALLET_ID = "SELECT * FROM MOVEMENT WHERE origin_wallet_id = :wallet_id OR destination_wallet_id = :wallet_id ORDER BY movement_id";
+    private final static String QUERY_GET_BY_WALLET_ID_AND_MOVEMENT_TYPE = "SELECT * FROM MOVEMENT WHERE (origin_wallet_id = :wallet_id OR destination_wallet_id = :wallet_id) AND movement_type = :movement_type ORDER BY movement_id";
+    private final static String QUERY_GET_IN_WALLET_ID = "SELECT * FROM MOVEMENT WHERE origin_wallet_id IN (:wallet_ids) OR destination_wallet_id IN (:wallet_ids) ORDER BY movement_id";
+    private final static String QUERY_GET_IN_WALLET_ID_AND_MOVEMENT_TYPE = "SELECT * FROM MOVEMENT WHERE (origin_wallet_id IN (:wallet_ids) OR destination_wallet_id IN (:wallet_ids)) AND movement_type = :movement_type ORDER BY movement_id";
 
     @PostConstruct
     public void init() {

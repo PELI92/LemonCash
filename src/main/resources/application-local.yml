@@ -5,3 +5,7 @@ db:
     db:
     user: sa
     password: password
+
+spring:
+  datasource:
+    initializationMode: always
