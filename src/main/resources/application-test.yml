@@ -14,4 +14,7 @@ db:
     cacheServerConfiguration: true
     connectionTimeout: 30000
     minimumIdle: 25
-    initialization-mode: embedded
+
+spring:
+  datasource:
+    initializationMode: never
