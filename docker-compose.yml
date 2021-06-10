@@ -1,0 +1,33 @@
+version: '3.9'
+
+services:
+
+    mysql-test:
+        image: lemoncash-mysql-test:latest
+        ports:
+            - 3307:3307
+
+    mysql:
+        image: lemoncash-mysql-prod:latest
+        ports:
+            - 3306:3306
+
+    lemoncash-api:
+        image: lemoncash-api
+        environment:
+            scope: prod
+        depends_on:
+            - mysql
+        ports:
+            - 8080:8080
+        restart: on-failure:5
+    
+    lemoncash-api-test:
+        image: lemoncash-api
+        environment:
+            scope: test
+        depends_on:
+            - mysql-test
+        ports:
+            - 8081:8081
+        restart: on-failure:5
