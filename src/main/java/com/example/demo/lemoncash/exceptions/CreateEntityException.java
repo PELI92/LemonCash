@@ -1,7 +1,9 @@
 package com.example.demo.lemoncash.exceptions;
 
-public class CreateEntityException extends RuntimeException {
-    
+import java.sql.SQLException;
+
+public class CreateEntityException extends SQLException {
+
     public CreateEntityException(String message) {
         super(message);
     }

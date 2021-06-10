@@ -12,6 +12,7 @@ import lombok.Builder;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.sql.SQLException;
 import java.util.List;
 
 import static com.example.demo.lemoncash.exchange.wallet.DefaultWalletFactory.defaultEmptyWallet;
@@ -37,7 +38,7 @@ public class UserService {
     private final TransactionService transactionService;
 
 
-    public void create(UserRequest userRequest) throws Exception {
+    public void create(UserRequest userRequest) throws SQLException {
         User user = userRequest.toUser();
         List<Wallet> wallets = defaultEmptyWallet(coinTypeDataService.getAllCoinTypes());
         transactionService.executeTransaction(() -> {

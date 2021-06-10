@@ -15,16 +15,16 @@ import javax.sql.DataSource;
 @ConfigurationProperties(prefix = "db.datasource")
 public class DataSourceConfig extends HikariConfig {
 
-    private String db;
     private String url;
     private String password;
 
     @Bean
     @SneakyThrows
     public DataSource getDataSource() {
-        String jdbcUrl = String.format("%s/%s", url, db);
-        setJdbcUrl(jdbcUrl);
+        String jdbcUrl = url;
+        super.setJdbcUrl(jdbcUrl);
         super.setPassword(password);
+        System.out.println("jdbcUrl: " + jdbcUrl);
         return new HikariDataSource(this);
     }
 

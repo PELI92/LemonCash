@@ -1,8 +1,7 @@
 db:
   datasource:
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306
-    db: lemoncash?useSSL=false&useTimezone=true&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    url: jdbc:mysql://mysql:3306/lemoncash?useSSL=false&allowPublicKeyRetrieval=true
     username: sa
     password: password
     maxLifetime: 420000

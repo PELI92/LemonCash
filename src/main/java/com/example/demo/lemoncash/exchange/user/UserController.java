@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.sql.SQLException;
+
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/users")
@@ -32,7 +34,7 @@ public class UserController {
     }
 
     @PostMapping("/")
-    public ResponseEntity createUser(@RequestBody UserRequest userRequest) throws Exception {
+    public ResponseEntity createUser(@RequestBody UserRequest userRequest) throws SQLException {
         userService.create(userRequest);
         return ResponseEntity.ok("Successfully created user");
     }
