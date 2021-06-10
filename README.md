@@ -7,27 +7,29 @@ Lemoncash
 Lemoncash es una plataforma que permite a los usuarios administrar distintos tipos de
 activos.
 
-## Setup:
+## Para ejecutar con Docker
 
-Crear el package de la api:
+* Crear el package de la api:
 ```bash
 mvn clean package
 ```
 
-Crear la imagen de la api:
+* Crear la imagen de la api:
 ```bash
 docker build . -t lemoncash-api
 ```
 
-Para crear las imagenes de las bases de datos referirse a:
+* Para crear las imagenes de las bases de datos referirse a:
 [LemonCashSQL](https://github.com/PELI92/LemonCashSQL)
+  
 
-## Para ejecutar:
-Ejecutar localemente desde IDE de preferencia con la siguiente VM option:
+* Levantar los containers:
 ```bash
--Dspring.profiles.active=local 
+docker-compose -f docker-compose.yml up
 ```
-o con maven:
+
+## Para ejecutar localmente:
+En este caso se levanta un DB H2 temporal en memoria, ejecutar con maven:
 ```bash
 mvn spring-boot:run -Dspring-boot.run.profiles=local
 ```
