@@ -8,6 +8,17 @@ Lemoncash es una plataforma que permite a los usuarios administrar distintos tip
 activos.
 
 ## Setup:
+
+Crear el package de la api:
+```bash
+mvn clean package
+```
+
+Crear la imagen de la api:
+```bash
+docker build . -t lemoncash-api
+```
+
 Para crear las imagenes de las bases de datos referirse a:
 [LemonCashSQL](https://github.com/PELI92/LemonCashSQL)
 

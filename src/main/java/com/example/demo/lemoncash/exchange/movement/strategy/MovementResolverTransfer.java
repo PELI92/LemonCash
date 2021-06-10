@@ -1,6 +1,7 @@
 package com.example.demo.lemoncash.exchange.movement.strategy;
 
 import com.example.demo.lemoncash.database.TransactionService;
+import com.example.demo.lemoncash.exceptions.CreateEntityException;
 import com.example.demo.lemoncash.exceptions.EntityNotFoundException;
 import com.example.demo.lemoncash.exceptions.InsufficientFundsException;
 import com.example.demo.lemoncash.exchange.coin.type.CoinType;
@@ -106,7 +107,7 @@ public class MovementResolverTransfer extends MovementResolver {
         }
     }
 
-    private void persistMovement(Wallet walletOrigin, Wallet walletDestination, CoinType coinType, Double amount) {
+    private void persistMovement(Wallet walletOrigin, Wallet walletDestination, CoinType coinType, Double amount) throws CreateEntityException {
         Movement movement = Movement.builder()
                 .coinTypeId(coinType.getId())
                 .movementType(transfer)

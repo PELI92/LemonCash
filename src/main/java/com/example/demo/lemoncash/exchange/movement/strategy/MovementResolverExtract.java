@@ -1,5 +1,6 @@
 package com.example.demo.lemoncash.exchange.movement.strategy;
 
+import com.example.demo.lemoncash.exceptions.CreateEntityException;
 import com.example.demo.lemoncash.exceptions.EntityNotFoundException;
 import com.example.demo.lemoncash.exceptions.InsufficientFundsException;
 import com.example.demo.lemoncash.exchange.coin.type.CoinType;
@@ -34,7 +35,7 @@ public class MovementResolverExtract extends MovementResolver {
         return result;
     }
 
-    public void applyMovement(MovementRequest movementRequest) {
+    public void applyMovement(MovementRequest movementRequest) throws CreateEntityException {
         CoinType coinType = coinTypeDataService.getByNameAbbr(movementRequest.getCoinTypeNameAbbr())
                 .orElseThrow(() -> new EntityNotFoundException(String.format("Coin Type not found for name: %s", movementRequest.getCoinTypeNameAbbr())));
 
@@ -47,7 +48,7 @@ public class MovementResolverExtract extends MovementResolver {
         }
     }
 
-    void processByUserId(MovementRequest movementRequest, CoinType coinType) {
+    void processByUserId(MovementRequest movementRequest, CoinType coinType) throws CreateEntityException {
         User user = userService.getById(movementRequest.getUserIdOrigin());
 
         validateAlias(movementRequest);
@@ -58,7 +59,7 @@ public class MovementResolverExtract extends MovementResolver {
         persistMovement(wallet, coinType, movementRequest.getAmount());
     }
 
-    void processByAlias(MovementRequest movementRequest, CoinType coinType) {
+    void processByAlias(MovementRequest movementRequest, CoinType coinType) throws CreateEntityException {
         User user = userService.getByAlias(movementRequest.getAliasOrigin());
 
         validateEmail(movementRequest);
@@ -69,7 +70,7 @@ public class MovementResolverExtract extends MovementResolver {
 
     }
 
-    void processByEmail(MovementRequest movementRequest, CoinType coinType) {
+    void processByEmail(MovementRequest movementRequest, CoinType coinType) throws CreateEntityException {
         User user = userService.getByEmail(movementRequest.getEmailOrigin());
 
         Wallet wallet = getWallet(coinType, user);
@@ -88,7 +89,7 @@ public class MovementResolverExtract extends MovementResolver {
         }
     }
 
-    private void persistMovement(Wallet walletOrigin, CoinType coinType, Double amount) {
+    private void persistMovement(Wallet walletOrigin, CoinType coinType, Double amount) throws CreateEntityException {
         Movement movement = Movement.builder()
                 .coinTypeId(coinType.getId())
                 .movementType(extract)

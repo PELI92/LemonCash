@@ -50,7 +50,7 @@ public class ControllerExceptionHandler extends BaseControllerExceptionHandler {
 
     @ExceptionHandler(SQLException.class)
     public ResponseEntity<ApiError> handleSQLException(ValidationException e) {
-        return handleErrorResponse(e, BAD_REQUEST);
+        return handleErrorResponse(e, INTERNAL_SERVER_ERROR);
     }
 
     @ExceptionHandler({HttpMessageConversionException.class, HttpMessageNotReadableException.class})
